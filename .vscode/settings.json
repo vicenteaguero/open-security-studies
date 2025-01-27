@@ -1,0 +1,7 @@
+{
+    "conventionalCommits.scopes": [
+        "oss",
+        "style",
+        "general"
+    ]
+}
