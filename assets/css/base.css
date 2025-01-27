@@ -1,0 +1,365 @@
+/* assets/css/base.css */
+
+@font-face {
+    font-family: 'Nohemi';
+    src: url('../fonts/Nohemi-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Satoshi';
+    src: url('../fonts/Satoshi-Bold.otf') format('opentype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Satoshi';
+    src: url('../fonts/Satoshi-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --color-ecru: #C2B27F;
+    --color-black: #000000;
+    --color-white: #FFFFFF;
+    --color-green: #1A281F;
+    --color-light-gray: #A5A5A5;
+    --padding-big: 50px;
+    --padding-normal: 25px;
+    --padding-small: 10px;
+    --padding-tiny: 5px;
+    --min-header-height: 50px;
+    --min-footer-height: 50px;
+    --base-font-size: 1em;
+}
+
+html, body, * {
+    /* cursor: url('../icons/gun.png') 4 4, auto !important; */
+    cursor: url('../icons/gun45.png') 3 3, auto !important;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background-color: var(--color-green);
+    color: var(--color-white);
+}
+
+.content {
+    padding: var(--padding-normal);
+    margin: 0;
+    background-color: var(--color-black);
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Nohemi', sans-serif;
+    font-weight: bold;
+    margin: 0;
+}
+
+h1 {
+    font-size: calc(2.5 * var(--base-font-size));
+    padding: 0;
+}
+
+h2 {
+    font-size: calc(2 * var(--base-font-size));
+    padding: 0;
+}
+
+h3 {
+    font-size: calc(1.5 * var(--base-font-size));
+    padding: 0;
+}
+
+p {
+    font-family: 'Satoshi', sans-serif;
+    font-size: calc(1 * var(--base-font-size));
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    padding: 0;
+    margin: 0;
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    color: var(--color-ecru);
+}
+
+/* Header */
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    min-height: var(--min-header-height);
+    padding: var(--padding-normal);
+    gap: var(--padding-normal);
+    background-color: var(--color-green);
+}
+
+header .header-top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--padding-normal);
+}
+
+header img {
+    width: 120px;
+    height: 120px;
+}
+
+header div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--padding-tiny);
+}
+
+header h1:hover {
+    color: var(--color-ecru);
+}
+
+header h2 {
+    font-size: calc(1.5 * var(--base-font-size));
+    color: var(--color-light-gray);
+}
+
+/* Nav */
+
+nav {
+    /* background-color: var(--color-black); */
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    z-index: 10;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    gap: var(--padding-tiny);
+}
+
+nav li {
+    position: relative;
+}
+
+.nav-btn {
+    padding: var(--padding-small) calc(2 * var(--padding-small));
+    /* background-color: var(--color-black); */
+    background-color: transparent;
+    color: var(--color-white);
+    /* border: 3px solid var(--color-ecru); */
+    border: 0px;
+    border-radius: var(--padding-small);
+    font-family: 'Nohemi', sans-serif;
+    font-size: calc(1 * var(--base-font-size));
+    transition: background-color 0.1s ease, color 0.1s ease, transform 0.1s ease;
+}
+
+/* <button class="nav-btn home" data-page="home"">Home</button> */
+.nav-btn.home {
+    padding: var(--padding-small) 0;
+    padding-right: calc(4 * var(--padding-small));
+    background: url('../icons/fighter.png') no-repeat center center;
+    background-size: contain;
+    color: transparent;
+    transition: none;
+    margin-right: var(--padding-tiny);
+}
+
+.nav-btn:hover {
+    background-color: var(--color-ecru);
+    color: var(--color-black);
+    transform: scale(1.05);
+}
+
+.nav-btn.home:hover {
+    padding: var(--padding-small) calc(2 * var(--padding-small));
+    background: none;
+    background-color: var(--color-ecru);
+    color: var(--color-black);
+    transition: none;
+    transform: scale(1.05);
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    flex-direction: column;
+    padding: var(--padding-small);
+    gap: var(--padding-small);
+    background-color: var(--color-light-gray);
+    border: 3px solid var(--color-black);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: var(--padding-small);
+    z-index: 20;
+    /* transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease; */
+}
+
+.dropdown-grid {
+    display: grid;
+    /* grid-template-columns: repeat(6, 1fr); */
+    grid-template-columns: 1fr;
+    gap: var(--padding-small);
+}
+
+@media (max-width: 768px) {
+    .dropdown-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.dropdown-grid .lesson-link {
+    display: inline-block;
+    min-width: auto;
+    padding: calc(0.5 * var(--padding-small)) var(--padding-normal);
+    text-align: left;
+    background-color: transparent;
+    color: var(--color-black);
+    font-family: 'Nohemi', sans-serif;
+    font-size: var(--base-font-size);
+    font-weight: bold;
+    white-space: nowrap;
+    border: 0px;
+    /* border: 1px solid var(--color-ecru); */
+    border-radius: calc(0.5 * var(--padding-small));
+    /* transition: background-color 0.3s ease, color 0.3s ease; */
+}
+
+.dropdown-grid .lesson-link:hover {
+    /* padding-left: var(--padding-small); */
+    color: var(--color-white);
+    transform: scale(1.15);
+}
+
+.dropdown-grid .lesson-link:hover .nav-btn {
+    background-color: var(--color-ecru);
+    color: var(--color-black);
+    transform: scale(1.05);
+}
+
+nav li:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+nav li.disable-hover:hover .dropdown {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    pointer-events: none;
+}
+
+nav li:hover > .nav-btn {
+    background-color: var(--color-ecru);
+    color: var(--color-black);
+    transform: scale(1.05);
+}
+
+nav li:hover > .nav-btn,
+.dropdown-grid .lesson-link:hover ~ .nav-btn {
+    background-color: var(--color-ecru);
+    color: var(--color-black);
+    transform: scale(1.05);
+}
+
+nav li:hover > .nav-btn.home {
+    padding: var(--padding-small) calc(2 * var(--padding-small));
+    background: none;
+    background-color: var(--color-ecru);
+    color: var(--color-black);
+    transition: none;
+    transform: scale(1.05);
+}
+
+nav li:hover > .nav-btn.home:hover {
+    padding: var(--padding-small) calc(2 * var(--padding-small));
+    background: none;
+    background-color: var(--color-ecru);
+    color: var(--color-black);
+    transition: none;
+    transform: scale(1.05);
+}
+
+/* Footer */
+
+footer {
+    min-height: var(--min-footer-height);
+    padding: var(--padding-normal);
+    background-color: var(--color-green);
+}
+
+footer .links {
+    padding-top: var(--padding-normal);
+}
+
+footer img.github {
+    width: auto;
+    height: calc(1 * var(--base-font-size));
+}
+
+footer img.license {
+    width: auto;
+    height: calc(0.75 * var(--base-font-size));
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar {
+    width: var(--padding-small);
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-white);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-light-gray);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-ecru);
+}
+
+/* No Select */
+
+.no-select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Centered */
+
+.centered {
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    gap: var(--padding-tiny);
+}
