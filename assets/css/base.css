@@ -147,6 +147,7 @@ nav {
     align-items: center;
     width: 100%;
     padding: 0;
+    padding-top: var(--padding-normal);
     z-index: 10;
 }
 
@@ -203,7 +204,7 @@ nav li {
 
 .dropdown {
     position: absolute;
-    top: 100%;
+    top: calc(100% + var(--padding-small));
     left: 0;
     opacity: 0;
     visibility: hidden;
@@ -251,7 +252,7 @@ nav li {
 .dropdown-grid .lesson-link:hover {
     /* padding-left: var(--padding-small); */
     color: var(--color-white);
-    transform: scale(1.15);
+    transform: scale(1.1);
 }
 
 .dropdown-grid .lesson-link:hover .nav-btn {
