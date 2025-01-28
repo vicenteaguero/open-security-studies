@@ -2,6 +2,7 @@
     "conventionalCommits.scopes": [
         "oss",
         "style",
-        "general"
+        "general",
+        "lessons"
     ]
 }
